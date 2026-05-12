@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 36% 9%;
+    --foreground: 210 17% 97%;
+
+    --surface: 220 28% 13%;
+    --surface-elevated: 220 24% 17%;
+
+    --card: 220 28% 13%;
+    --card-foreground: 210 17% 97%;
+
+    --popover: 220 28% 13%;
+    --popover-foreground: 210 17% 97%;
+
+    --primary: 38 50% 58%;
+    --primary-foreground: 222 36% 9%;
+
+    --secondary: 220 24% 17%;
+    --secondary-foreground: 210 17% 97%;
+
+    --muted: 220 20% 22%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 213 100% 75%;
+    --accent-foreground: 222 36% 9%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 17% 97%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 38 50% 58%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Manrope', system-ui, sans-serif; }
+  .font-body { font-family: 'Inter', system-ui, sans-serif; }
+  .text-balance { text-wrap: balance; }
+  .gold-line {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.6), transparent);
+  }
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+.draw-line { stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 2.4s ease-out forwards; }
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
